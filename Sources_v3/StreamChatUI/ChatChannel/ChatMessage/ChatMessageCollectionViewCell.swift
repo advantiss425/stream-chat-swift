@@ -14,13 +14,15 @@ open class СhatMessageCollectionViewCell<ExtraData: ExtraDataTypes>: UICollecti
     // MARK: - Subviews
 
     public private(set) lazy var messageView = uiConfig.messageList.messageContentView.init().withoutAutoresizingMaskConstraints
-    
+    private var hasCompletedStreamSetup = false
+
     // MARK: - Lifecycle
 
     override open func didMoveToSuperview() {
         super.didMoveToSuperview()
 
-        guard superview != nil else { return }
+        guard superview != nil, !hasCompletedStreamSetup else { return }
+        hasCompletedStreamSetup = true
 
         setUpLayout()
         updateContent()
