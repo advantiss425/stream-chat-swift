@@ -72,6 +72,7 @@ open class ChatMessageListVC<ExtraData: ExtraDataTypes>: ViewController,
         collection.keyboardDismissMode = .onDrag
         collection.dataSource = self
         collection.delegate = self
+        collection.isHidden = true
 
         return collection
     }()
@@ -81,7 +82,22 @@ open class ChatMessageListVC<ExtraData: ExtraDataTypes>: ViewController,
     /// Consider to call `setNeedsScrollToMostRecentMessage(animated:)` instead
     public private(set) var needsToScrollToMostRecentMessageAnimated = false
 
+    /// When controller loaded first time, message layout is in estimated state.
+    /// We force layout reload on first appear, before showing message list.
+    /// This way we able to hide ugly jump
+    public private(set) var hideInitialLayout = true
+
     // MARK: - Life Cycle
+
+    override open func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if hideInitialLayout {
+            collectionView.reloadData()
+            collectionView.isHidden = false
+            hideInitialLayout = false
+        }
+    }
 
     override open func setUp() {
         super.setUp()
