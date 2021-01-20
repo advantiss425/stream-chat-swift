@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Stream.io Inc. All rights reserved.
+// Copyright © 2021 Stream.io Inc. All rights reserved.
 //
 
 import CoreData
@@ -91,7 +91,7 @@ class ListDatabaseObserver_Tests: XCTestCase {
         super.setUp()
         
         fetchRequest = NSFetchRequest(entityName: "TestManagedObject")
-        fetchRequest.sortDescriptors = [.init(key: "id", ascending: true)]
+        fetchRequest.sortDescriptors = [.init(key: "testId", ascending: true)]
         database = try! DatabaseContainerMock(
             kind: .inMemory,
             modelName: "TestDataModel",
@@ -161,6 +161,43 @@ class ListDatabaseObserver_Tests: XCTestCase {
         assert(testFRC.test_performFetchCalled == false)
         try observer.startObserving()
         XCTAssertTrue(testFRC.test_performFetchCalled)
+    }
+    
+    func test_updateNotReported_whenSamePropertyAssignedViaAssignIfDifferent() throws {
+        // For this test, we need an actual NSFetchedResultsController, not the test one
+        let observer = ListDatabaseObserver<TestManagedObject, TestManagedObject>(
+            context: database.viewContext,
+            fetchRequest: fetchRequest,
+            itemCreator: { $0 }
+        )
+        
+        var receivedChanges: [ListChange<TestManagedObject>]?
+        observer.onChange = { receivedChanges = $0 }
+        
+        // Call startObserving to set everything up
+        try observer.startObserving()
+        
+        // Insert the test object
+        let testValue = String.unique
+        var item: TestManagedObject!
+        try database.writeSynchronously { _ in
+            let context = self.database.writableContext
+            item = NSEntityDescription.insertNewObject(forEntityName: "TestManagedObject", into: context) as? TestManagedObject
+            item.testId = testValue
+            item.testValue = testValue
+        }
+        
+        XCTAssertEqual(receivedChanges?.first?.item.testId, testValue)
+        
+        // Assign the same testValue to the same entity
+        try database.writeSynchronously { _ in
+            // We use this function instead of direct assignment (`=`) in our `save` methods
+            assignIfDifferent(item, \.testValue, testValue)
+        }
+        
+        if case .update = receivedChanges?.first {
+            XCTFail("Update shouldn't be reported!")
+        }
     }
     
     func test_allItemsAreRemoved_whenDatabaseContainerRemovesAllData() throws {
