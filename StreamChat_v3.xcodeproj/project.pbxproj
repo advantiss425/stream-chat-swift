@@ -146,6 +146,8 @@
 		793061A12577C8B4005CF846 /* ChatClient_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793061A02577C8B4005CF846 /* ChatClient_Mock.swift */; };
 		7931818C24FD2660002F8C84 /* ChannelListController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7931818B24FD2660002F8C84 /* ChannelListController+Combine.swift */; };
 		7931818E24FD4275002F8C84 /* ChannelListController+Combine_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7931818D24FD4275002F8C84 /* ChannelListController+Combine_Tests.swift */; };
+		7932915825B88F00003C24B7 /* AssignIfDifferent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7932915725B88F00003C24B7 /* AssignIfDifferent.swift */; };
+		7932916725B89161003C24B7 /* AssignIfDifferent_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7932915F25B8913A003C24B7 /* AssignIfDifferent_Tests.swift */; };
 		79330604256FEBE600FBB586 /* AdvancedOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79330603256FEBE600FBB586 /* AdvancedOptionsViewController.swift */; };
 		7933060B256FF94800FBB586 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7933060A256FF94800FBB586 /* ChatPresenter.swift */; };
 		7933064925712C8B00FBB586 /* DemoUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7933064825712C8B00FBB586 /* DemoUsers.swift */; };
@@ -889,6 +891,8 @@
 		793061A02577C8B4005CF846 /* ChatClient_Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatClient_Mock.swift; sourceTree = "<group>"; };
 		7931818B24FD2660002F8C84 /* ChannelListController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelListController+Combine.swift"; sourceTree = "<group>"; };
 		7931818D24FD4275002F8C84 /* ChannelListController+Combine_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelListController+Combine_Tests.swift"; sourceTree = "<group>"; };
+		7932915725B88F00003C24B7 /* AssignIfDifferent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignIfDifferent.swift; sourceTree = "<group>"; };
+		7932915F25B8913A003C24B7 /* AssignIfDifferent_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignIfDifferent_Tests.swift; sourceTree = "<group>"; };
 		79330603256FEBE600FBB586 /* AdvancedOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedOptionsViewController.swift; sourceTree = "<group>"; };
 		7933060A256FF94800FBB586 /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
 		7933064825712C8B00FBB586 /* DemoUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoUsers.swift; sourceTree = "<group>"; };
@@ -1747,6 +1751,8 @@
 				88EA9AD725470F6A007EE76B /* Dictionary+Extensions.swift */,
 				88EA9AE125471999007EE76B /* Dictionary_Tests.swift */,
 				881506EB258212BF0013935B /* MultipartFormData.swift */,
+				7932915725B88F00003C24B7 /* AssignIfDifferent.swift */,
+				7932915F25B8913A003C24B7 /* AssignIfDifferent_Tests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -3703,6 +3709,7 @@
 				79896D5C2506593E00BA8F1C /* ChannelReadDTO.swift in Sources */,
 				8819DFD52525F49D00FD1A50 /* UserController.swift in Sources */,
 				F6CCA24D251235F7004C1859 /* ChannelMemberTypingStateUpdaterMiddleware.swift in Sources */,
+				7932915825B88F00003C24B7 /* AssignIfDifferent.swift in Sources */,
 				8A618E4524D19D510003D83C /* WebSocketPingController.swift in Sources */,
 				8A62704E24B8660A0040BFD6 /* EventType.swift in Sources */,
 				F65D9091250A5989000B8CEB /* WebSocketConnectEndpoint.swift in Sources */,
@@ -3907,6 +3914,7 @@
 				8A0C3BE224C1F74200CAFD19 /* MessageEvents_Tests.swift in Sources */,
 				791C0B6524EFBD260013CA2F /* UnwrapAsync.swift in Sources */,
 				7990503224CEEAA600689CDC /* MessageDTO_Tests.swift in Sources */,
+				7932916725B89161003C24B7 /* AssignIfDifferent_Tests.swift in Sources */,
 				88D85DAB252F3C2A00AE1030 /* MemberListController_Tests.swift in Sources */,
 				88F7692B25837EE600BD36B0 /* AttachmentUploader_Tests.swift in Sources */,
 				8819DFDE252622D900FD1A50 /* ModerationEndpoints_Tests.swift in Sources */,
