@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Stream.io Inc. All rights reserved.
+// Copyright © 2021 Stream.io Inc. All rights reserved.
 //
 
 @testable import StreamChat
@@ -139,6 +139,68 @@ class UserDTO_Tests: XCTestCase {
         
         // Check the online status is `false`
         XCTAssertEqual(database.viewContext.user(id: userId)?.isOnline, false)
+    }
+    
+    func test_DTO_skipsUnnecessarySave() throws {
+        // Test payload with explicitHash
+        class ExplicitHashUserPayload: UserPayload<DefaultExtraData.User> {
+            var explicitHash: Int?
+            
+            // swiftlint:disable:next legacy_hashing
+            override var hashValue: Int {
+                explicitHash ?? super.hashValue
+            }
+        }
+        
+        // Create explicit userId
+        let userId = UUID().uuidString
+        
+        // Create test payload
+        let payload: UserPayload<DefaultExtraData.User> = .dummy(userId: userId)
+        
+        // Save the payload to the db
+        try database.writeSynchronously { session in
+            try session.saveUser(payload: payload)
+        }
+        
+        let changedPayload: ExplicitHashUserPayload = .init(
+            id: userId,
+            name: .unique,
+            imageURL: .unique(),
+            role: .admin,
+            createdAt: .unique,
+            updatedAt: .unique,
+            lastActiveAt: .unique,
+            isOnline: .random(),
+            isInvisible: .random(),
+            isBanned: .random(),
+            extraData: .defaultValue
+        )
+        // Assign it's explicitHast
+        changedPayload.explicitHash = payload.hashValue
+        
+        // Save the changed payload with the same hash
+        try database.writeSynchronously { session in
+            try session.saveUser(payload: changedPayload)
+        }
+        
+        // Load the user from the db and check the fields are correct
+        var loadedUserPayload: _ChatUser<DefaultExtraData.User>? {
+            database.viewContext.user(id: userId)?.asModel()
+        }
+        
+        // Assert that name is not changed
+        XCTAssertEqual(loadedUserPayload?.name, payload.name)
+        XCTAssertNotEqual(loadedUserPayload?.name, changedPayload.name)
+        
+        let newPayload: UserPayload<DefaultExtraData.User> = .dummy(userId: userId)
+        
+        // Save the changed payload with the same hash
+        try database.writeSynchronously { session in
+            try session.saveUser(payload: newPayload)
+        }
+        
+        XCTAssertEqual(loadedUserPayload?.name, newPayload.name)
     }
     
     func test_userWithUserListQuery_isSavedAndLoaded() {

@@ -26,7 +26,7 @@ enum UserPayloadsCodingKeys: String, CodingKey {
 // MARK: - GET users
 
 /// An object describing the incoming user JSON payload.
-class UserPayload<ExtraData: UserExtraData>: Decodable {
+class UserPayload<ExtraData: UserExtraData>: Decodable, Hashable {
     let id: String
     let name: String?
     let imageURL: URL?
@@ -39,6 +39,25 @@ class UserPayload<ExtraData: UserExtraData>: Decodable {
     let isBanned: Bool
     let teams: [String]
     let extraData: ExtraData
+    
+    static func == (lhs: UserPayload<ExtraData>, rhs: UserPayload<ExtraData>) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(name)
+        hasher.combine(imageURL)
+        hasher.combine(role.rawValue)
+        hasher.combine(createdAt)
+        hasher.combine(updatedAt)
+        hasher.combine(lastActiveAt)
+        hasher.combine(isOnline)
+        // hasher.combine(isInvisible)
+        hasher.combine(isBanned)
+        // hasher.combine(teams)
+        hasher.combine(try! JSONEncoder.default.encode(extraData))
+    }
     
     init(
         id: String,

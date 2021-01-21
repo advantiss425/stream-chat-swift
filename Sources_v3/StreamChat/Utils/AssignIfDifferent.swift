@@ -6,7 +6,8 @@ import Foundation
 
 /// Assigns the new value given for the entity's keyPath only if it's different.
 ///
-/// This function is used mainly for updating NSManagedObject's properties. Since updating an NSManagedObject's property with the same value
+/// This function is used mainly for updating NSManagedObject's properties.
+/// Since updating an NSManagedObject's property with the same value
 /// produces an update notification, we use this to avoid that case, and avoid unnecessary updates.
 ///
 /// - Parameters:

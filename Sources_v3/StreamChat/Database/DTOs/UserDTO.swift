@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Stream.io Inc. All rights reserved.
+// Copyright © 2021 Stream.io Inc. All rights reserved.
 //
 
 import CoreData
@@ -21,12 +21,34 @@ class UserDTO: NSManagedObject {
     
     @NSManaged var flaggedBy: CurrentUserDTO?
     
+    @NSManaged var payloadHash: Int64
+    
     /// Returns a fetch request for the dto with the provided `userId`.
     static func user(withID userId: UserId) -> NSFetchRequest<UserDTO> {
         let request = NSFetchRequest<UserDTO>(entityName: UserDTO.entityName)
         request.sortDescriptors = [NSSortDescriptor(keyPath: \UserDTO.id, ascending: false)]
         request.predicate = NSPredicate(format: "id == %@", userId)
         return request
+    }
+    
+    override func willSave() {
+        super.willSave()
+        var hasher = Hasher()
+        hasher.combine(id)
+        hasher.combine(name)
+        hasher.combine(imageURL)
+        hasher.combine(userRoleRaw)
+        hasher.combine(userCreatedAt)
+        hasher.combine(userUpdatedAt)
+        hasher.combine(lastActivityAt)
+        hasher.combine(isOnline)
+        // hasher.combine(isInvisible)
+        hasher.combine(isBanned)
+        // hasher.combine(teams)
+        hasher.combine(extraData)
+        // Direct assignment cannot be used
+        // Since it'll generate new `willSave` calls causing recursion
+        assignIfDifferent(self, \.payloadHash, Int64(hasher.finalize()))
     }
 }
 
@@ -77,6 +99,14 @@ extension NSManagedObjectContext: UserDatabaseSession {
         query: UserListQuery<ExtraData>?
     ) throws -> UserDTO {
         let dto = UserDTO.loadOrCreate(id: payload.id, context: self)
+        
+        print("### payloadHash", dto.payloadHash)
+        print("### payload.hashValue", payload.hashValue)
+        
+        guard dto.payloadHash != payload.hashValue else {
+            // No change
+            return dto
+        }
         
         dto.name = payload.name
         dto.imageURL = payload.imageURL
