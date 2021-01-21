@@ -37,11 +37,11 @@ extension MessageActionsView {
             let titleTextColor: UIColor
 
             if actionItem?.isDestructive == true {
-                imageTintСolor = uiConfig.colorPalette.messageActionErrorTint
+                imageTintСolor = uiConfig.colorPalette.alert
                 titleTextColor = imageTintСolor
             } else {
-                imageTintСolor = actionItem?.isPrimary == true ? tintColor : uiConfig.colorPalette.messageActionDefaultIconTint
-                titleTextColor = uiConfig.colorPalette.messageActionDefaultText
+                imageTintСolor = actionItem?.isPrimary == true ? tintColor : uiConfig.colorPalette.inactiveTint
+                titleTextColor = uiConfig.colorPalette.text
             }
 
             setImage(actionItem?.icon.tinted(with: imageTintСolor), for: .normal)

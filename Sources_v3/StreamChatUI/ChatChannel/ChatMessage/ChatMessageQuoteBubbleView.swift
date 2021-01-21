@@ -35,10 +35,10 @@ open class ChatMessageQuoteBubbleView<ExtraData: ExtraDataTypes>: MessageCompose
         ]
     
         if isParentMessageSentByCurrentUser {
-            container.centerStackView.backgroundColor = uiConfig.colorPalette.incomingMessageBubbleBackground
+            container.centerStackView.backgroundColor = uiConfig.colorPalette.background
             container.leftStackView.addArrangedSubview(authorAvatarView)
         } else {
-            container.centerStackView.backgroundColor = uiConfig.colorPalette.outgoingMessageBubbleBackground
+            container.centerStackView.backgroundColor = uiConfig.colorPalette.background
             container.rightStackView.addArrangedSubview(authorAvatarView)
         }
     }

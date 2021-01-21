@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Stream.io Inc. All rights reserved.
+// Copyright © 2021 Stream.io Inc. All rights reserved.
 //
 
 import StreamChat
@@ -10,6 +10,6 @@ open class ChatMessageErrorIndicator<ExtraData: ExtraDataTypes>: Button, UIConfi
         super.defaultAppearance()
 
         setImage(UIImage(named: "error_indicator", in: .streamChatUI)!, for: .normal)
-        tintColor = uiConfig.colorPalette.outgoingMessageErrorIndicatorTint
+        tintColor = uiConfig.colorPalette.alert
     }
 }

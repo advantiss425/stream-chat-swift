@@ -47,7 +47,7 @@ open class ChatReadStatusCheckmarkView<ExtraData: ExtraDataTypes>: View, UIConfi
             imageView.tintColor = tintColor
         case .unread:
             imageView.image = UIImage(named: "checkmark", in: .streamChatUI)
-            imageView.tintColor = uiConfig.colorPalette.unreadChatTint
+            imageView.tintColor = uiConfig.colorPalette.inactiveTint
         }
     }
 }

@@ -72,9 +72,9 @@ private extension ChatMessageDefaultReactionsBubbleView {
 
         switch content.style {
         case .bigIncoming, .bigOutgoing, .smallOutgoing:
-            return uiConfig.colorPalette.incomingMessageBubbleBackground
+            return uiConfig.colorPalette.background4
         case .smallIncoming:
-            return uiConfig.colorPalette.outgoingMessageBubbleBackground
+            return uiConfig.colorPalette.background1
         }
     }
 
@@ -83,9 +83,9 @@ private extension ChatMessageDefaultReactionsBubbleView {
 
         switch content.style {
         case .smallOutgoing:
-            return uiConfig.colorPalette.incomingMessageBubbleBorder
+            return uiConfig.colorPalette.border
         case .smallIncoming:
-            return uiConfig.colorPalette.outgoingMessageBubbleBorder
+            return uiConfig.colorPalette.border
         default:
             return contentBackgroundColor
         }
@@ -110,11 +110,11 @@ private extension ChatMessageDefaultReactionsBubbleView {
                 colors: .init(
                     outlineColor: uiConfig.colorPalette.generalBackground,
                     borderColor: content.style.isIncoming ?
-                        uiConfig.colorPalette.outgoingMessageBubbleBorder :
-                        uiConfig.colorPalette.incomingMessageBubbleBorder,
+                        uiConfig.colorPalette.border :
+                        uiConfig.colorPalette.border,
                     innerColor: content.style.isIncoming ?
-                        uiConfig.colorPalette.outgoingMessageBubbleBackground :
-                        uiConfig.colorPalette.incomingMessageBubbleBackground
+                        uiConfig.colorPalette.background1 :
+                        uiConfig.colorPalette.background4
                 )
             )
         }
@@ -133,8 +133,8 @@ private extension ChatMessageDefaultReactionsBubbleView {
                     outlineColor: .clear,
                     borderColor: .clear,
                     innerColor: content.style.isIncoming ?
-                        uiConfig.colorPalette.outgoingMessageBubbleBackground :
-                        uiConfig.colorPalette.incomingMessageBubbleBackground
+                        uiConfig.colorPalette.background1 :
+                        uiConfig.colorPalette.background4
                 )
             )
         }

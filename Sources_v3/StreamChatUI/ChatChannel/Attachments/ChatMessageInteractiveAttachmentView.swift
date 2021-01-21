@@ -47,7 +47,7 @@ open class ChatMessageInteractiveAttachmentView<ExtraData: ExtraDataTypes>: View
         preview.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         preview.clipsToBounds = true
 
-        separator.backgroundColor = uiConfig.colorPalette.messageInteractiveAttachmentActionsBorder
+        separator.backgroundColor = uiConfig.colorPalette.border
     }
 
     override open func setUpLayout() {

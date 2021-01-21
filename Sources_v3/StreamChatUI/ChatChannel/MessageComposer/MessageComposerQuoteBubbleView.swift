@@ -64,7 +64,7 @@ open class MessageComposerQuoteBubbleView<ExtraData: ExtraDataTypes>: View, UICo
         
         container.centerStackView.layer.cornerRadius = 16
         container.centerStackView.layer.borderWidth = 1
-        container.centerStackView.layer.borderColor = uiConfig.colorPalette.messageComposerBorder.cgColor
+        container.centerStackView.layer.borderColor = uiConfig.colorPalette.border.cgColor
         container.centerStackView.layer.masksToBounds = true
     }
     

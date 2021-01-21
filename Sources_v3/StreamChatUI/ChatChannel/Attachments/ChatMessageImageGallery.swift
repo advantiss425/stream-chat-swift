@@ -105,7 +105,7 @@ open class ChatMessageImageGallery<ExtraData: ExtraDataTypes>: View, UIConfigPro
 
     override public func defaultAppearance() {
         moreImagesOverlay.textColor = .white
-        moreImagesOverlay.backgroundColor = uiConfig.colorPalette.galleryMoreImagesOverlayBackground
+        moreImagesOverlay.backgroundColor = uiConfig.colorPalette.background3
     }
 
     override open func updateContent() {

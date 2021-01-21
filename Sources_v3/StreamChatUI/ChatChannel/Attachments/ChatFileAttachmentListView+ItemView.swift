@@ -18,11 +18,11 @@ extension ChatFileAttachmentListView {
         // MARK: - Overrides
 
         override public func defaultAppearance() {
-            backgroundColor = uiConfig.colorPalette.incomingMessageBubbleBackground
+            backgroundColor = uiConfig.colorPalette.background4
             layer.cornerRadius = 12
             layer.masksToBounds = true
             layer.borderWidth = 1
-            layer.borderColor = uiConfig.colorPalette.incomingMessageBubbleBorder.cgColor
+            layer.borderColor = uiConfig.colorPalette.border.cgColor
         }
 
         override open func setUpLayout() {

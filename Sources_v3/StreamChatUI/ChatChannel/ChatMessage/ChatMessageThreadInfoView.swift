@@ -27,7 +27,7 @@ open class ChatMessageThreadArrowView<ExtraData: ExtraDataTypes>: View, UIConfig
 
     override public func defaultAppearance() {
         shape.contentsScale = layer.contentsScale
-        shape.strokeColor = uiConfig.colorPalette.incomingMessageBubbleBorder.cgColor
+        shape.strokeColor = uiConfig.colorPalette.border.cgColor
         shape.fillColor = nil
         shape.lineWidth = 1.0
     }

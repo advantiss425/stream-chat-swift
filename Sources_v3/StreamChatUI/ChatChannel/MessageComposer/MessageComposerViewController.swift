@@ -120,7 +120,7 @@ open class MessageComposerViewController<ExtraData: ExtraDataTypes>: ViewControl
         case let .quote(messageToQuote):
             composerView.titleLabel.text = L10n.Composer.Title.reply
             let image = UIImage(named: "replyArrow", in: .streamChatUI)?
-                .tinted(with: uiConfig.colorPalette.messageComposerStateIcon)
+                .tinted(with: uiConfig.colorPalette.inactiveTint)
             composerView.stateIcon.image = image
             composerView.container.topStackView.setAnimatedly(hidden: false)
             composerView.quotedMessageView.setAnimatedly(hidden: false)
@@ -130,7 +130,7 @@ open class MessageComposerViewController<ExtraData: ExtraDataTypes>: ViewControl
             composerView.sendButton.mode = .edit
             composerView.titleLabel.text = L10n.Composer.Title.edit
             let image = UIImage(named: "editPencil", in: .streamChatUI)?
-                .tinted(with: uiConfig.colorPalette.messageComposerStateIcon)
+                .tinted(with: uiConfig.colorPalette.inactiveTint)
             composerView.stateIcon.image = image
             composerView.container.topStackView.setAnimatedly(hidden: false)
             textView.text = message.text

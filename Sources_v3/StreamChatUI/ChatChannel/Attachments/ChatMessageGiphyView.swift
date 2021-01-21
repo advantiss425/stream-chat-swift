@@ -92,7 +92,7 @@ extension ChatMessageGiphyView {
         public private(set) lazy var title: UILabel = {
             let label = UILabel().withoutAutoresizingMaskConstraints
             label.text = "GIPHY"
-            label.textColor = uiConfig.colorPalette.giphyBadgeText
+            label.textColor = uiConfig.colorPalette.text2
             label.font = uiConfig.font.bodyBold
             return label
         }()
@@ -124,7 +124,7 @@ extension ChatMessageGiphyView {
             super.defaultAppearance()
 
             backgroundColor = UIColor.black.withAlphaComponent(0.6)
-            lightning.tintColor = uiConfig.colorPalette.giphyBadgeText
+            lightning.tintColor = uiConfig.colorPalette.text2
         }
 
         override open func layoutSubviews() {

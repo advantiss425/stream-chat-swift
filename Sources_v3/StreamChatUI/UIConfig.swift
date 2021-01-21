@@ -45,11 +45,12 @@ public extension UIConfig {
 
 public extension UIConfig {
     struct ColorPalette {
-        // MARK: - General
+        // MARK: - Text
 
-        public var subtitleText: UIColor = .streamGray
+        /// General textColor, should be something that contrasts great with your
         public var text: UIColor = .streamBlack
         public var text2: UIColor = .streamWhite
+        public var subtitleText: UIColor = .streamGray
 
         // MARK: - Text interactions
 
@@ -57,70 +58,31 @@ public extension UIConfig {
         public var disabledColorForColor: (UIColor) -> UIColor = { _ in .lightGray }
         public var unselectedColorForColor: (UIColor) -> UIColor = { _ in .lightGray }
 
+        // MARK: - Background
+
         public var generalBackground: UIColor = .streamWhiteSnow
-        /// Color under the generalBackground, for example if you swipe to delete on cell, this color should be below the cell.
         public var background: UIColor = .streamWhiteSmoke
         public var background1: UIColor = .streamGrayGainsboro
-        public var background2: UIColor = .streamBlueAlice
-        public var background3: UIColor = .streamOverlay
-        public var background4: UIColor = .streamOverlayDark
+        public var background2: UIColor = .streamOverlay
+        public var background3: UIColor = .streamOverlayDark
+        public var background4: UIColor = .streamWhite
+
         public var popoverBackground: UIColor = .streamWhite
         public var highlightedBackground: UIColor = .streamAccentBlue
+        public var highlightedBackground2: UIColor = .streamBlueAlice
+
+        // MARK: - Borders and shadows
 
         public var shadow: UIColor = .streamModalShadow
         public var lightBorder: UIColor = .streamWhiteSnow
         public var border: UIColor = .streamGrayGainsboro
+        public var border2: UIColor = .streamGray
 
-        public var alertColor: UIColor = .streamAccentRed
-        public var onlineIndicatorColor: UIColor = .streamAccentGreen // This feels strange, however no other component uses green.
+        // MARK: - Tint and alert
+
+        public var alert: UIColor = .streamAccentRed
+        public var alternativeActiveTint: UIColor = .streamAccentGreen // This feels strange, however no other component uses green.
         public var inactiveTint: UIColor = .streamGray
-
-        // MARK: - Channel List
-
-//        public var channelListActionsBackgroundColor: UIColor = .streamWhiteSmoke // background
-//        public var channelListIndicatorBorderColor: UIColor = .streamWhiteSnow // lightBorder
-//        public var channelListActionDeleteChannel: UIColor = .streamAccentRed //
-//        public var channelListAvatarOnlineIndicator: UIColor = .streamAccentGreen
-//        public var channelListUnreadCountView: UIColor = .streamAccentRed
-//        public var channelListUnreadCountLabel: UIColor = .streamWhite
-
-        // MARK: - Message Bubbles
-
-//        public var outgoingMessageBubbleBackground: UIColor = .streamGrayGainsboro
-//        public var outgoingMessageBubbleBorder: UIColor = .streamGrayGainsboro
-//        public var incomingMessageBubbleBackground: UIColor = .streamWhite
-//        public var incomingMessageBubbleBorder: UIColor = .streamGrayGainsboro
-//        public var inactiveReactionTint: UIColor = .streamGray
-//        public var outgoingMessageErrorIndicatorTint: UIColor = .streamAccentRed
-//        public var linkMessageBubbleBackground: UIColor = .streamBlueAlice
-//        public var ephemeralMessageBubbleBackground: UIColor = .streamWhite
-//        public var giphyBadgeText: UIColor = .streamWhite
-
-        // MARK: - Message Composer
-
-//        public var messageComposerBorder: UIColor = .streamGrayGainsboro // border
-//        public var messageComposerBackground: UIColor = .streamWhite // popoverBackground
-//        public var messageComposerButton: UIColor = .streamGray // inactiveTint
-//        public var messageComposerStateIcon: UIColor = .streamGrayGainsboro // inactiveTint
-//        public var messageComposerPlaceholder: UIColor = .streamGray // inactiveTint/subtitleText
-//        public var messageComposerCheckmarkBorder: UIColor = .streamGray // inactiveTint/subtitleText
-//        public var messageComposerCheckmarkLabel: UIColor = .streamGray // inactivetint/subtitleText
-//        public var messageComposerCheckmark: UIColor = .streamWhite // probably popoverBackground, unless defined otherwise
-//        public var slashCommandViewBackground: UIColor = .streamAccentBlue // highlightedBackground
-//        public var slashCommandViewText: UIColor = .streamWhite // text2
-
-        // MARK: - Message interaction
-
-//        public var galleryMoreImagesOverlayBackground: UIColor = .streamOverlay // background3
-//        public var messageTimestampText: UIColor = .streamGray // subtitleText
-//        public var unreadChatTint: UIColor = .streamGray // subtitleText
-//        public var galleryImageBackground: UIColor = .streamWhiteSmoke
-//        public var galleryUploadingOverlayBackground: UIColor = .streamOverlay // background 3
-//        public var galleryUploadingProgressBackground: UIColor = .streamOverlayDark // background 4
-//        public var messageActionDefaultIconTint: UIColor = .streamGray // inactiveTint
-//        public var messageActionDefaultText: UIColor = .streamBlack // text
-//        public var messageActionErrorTint: UIColor = .streamAccentRed // alertTint
-//        public var messageInteractiveAttachmentActionsBorder: UIColor = .streamGrayGainsboro // border
     }
 }
 
@@ -382,6 +344,7 @@ public extension UIConfig {
 
 // MARK: - Steam constants
 
+// Those colors are default defined stream constants, which
 private extension UIColor {
     /// This is color palette used by design team.
     /// If you see any color not from this list in figma, point it out to anyone in design team.

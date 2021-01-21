@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Stream.io Inc. All rights reserved.
+// Copyright © 2021 Stream.io Inc. All rights reserved.
 //
 
 import StreamChat
@@ -82,6 +82,6 @@ private extension ChatMessageReactionsView.ItemView {
 
         return content.reaction.isChosenByCurrentUser ?
             tintColor :
-            uiConfig.colorPalette.inactiveReactionTint
+            uiConfig.colorPalette.inactiveTint
     }
 }

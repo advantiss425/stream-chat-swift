@@ -19,8 +19,8 @@ extension ChatMessageImageGallery {
         }
 
         override public func defaultAppearance() {
-            backgroundColor = uiConfig.colorPalette.galleryUploadingOverlayBackground
-            fileSizeContainer.backgroundColor = uiConfig.colorPalette.galleryUploadingProgressBackground
+            backgroundColor = uiConfig.colorPalette.background3
+            fileSizeContainer.backgroundColor = uiConfig.colorPalette.background4
             fileSizeContainer.layer.masksToBounds = true
             fileSizeLabel.textColor = .white
         }

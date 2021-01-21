@@ -104,29 +104,29 @@ open class MessageComposerView<ExtraData: ExtraDataTypes>: View,
         super.defaultAppearance()
         stateIconHeight = 40
         
-        backgroundColor = uiConfig.colorPalette.messageComposerBackground
+        backgroundColor = uiConfig.colorPalette.popoverBackground
         
         container.centerStackView.clipsToBounds = true
         container.centerStackView.layer.cornerRadius = 25
         container.centerStackView.layer.borderWidth = 1
-        container.centerStackView.layer.borderColor = uiConfig.colorPalette.messageComposerBorder.cgColor
+        container.centerStackView.layer.borderColor = uiConfig.colorPalette.border.cgColor
         
         layer.shadowColor = UIColor.systemGray.cgColor
         layer.shadowOpacity = 1
         layer.shadowOffset = .zero
         layer.shadowRadius = 0.5
         
-        let clipIcon = UIImage(named: "clip", in: .streamChatUI)?.tinted(with: uiConfig.colorPalette.messageComposerButton)
+        let clipIcon = UIImage(named: "clip", in: .streamChatUI)?.tinted(with: uiConfig.colorPalette.inactiveTint)
         attachmentButton.setImage(clipIcon, for: .normal)
         
-        let boltIcon = UIImage(named: "bolt", in: .streamChatUI)?.tinted(with: uiConfig.colorPalette.messageComposerButton)
+        let boltIcon = UIImage(named: "bolt", in: .streamChatUI)?.tinted(with: uiConfig.colorPalette.inactiveTint)
         commandsButton.setImage(boltIcon, for: .normal)
         
         let shrinkArrowIcon = UIImage(named: "shrinkInputArrow", in: .streamChatUI)
         shrinkInputButton.setImage(shrinkArrowIcon, for: .normal)
         
         let dismissIcon =
-            UIImage(named: "dismissInCircle", in: .streamChatUI)?.tinted(with: uiConfig.colorPalette.messageComposerButton)
+            UIImage(named: "dismissInCircle", in: .streamChatUI)?.tinted(with: uiConfig.colorPalette.inactiveTint)
         dismissButton.setImage(dismissIcon, for: .normal)
         
         titleLabel.textAlignment = .center

@@ -62,8 +62,8 @@ open class ChatUnreadCountView<ExtraData: ExtraDataTypes>: View, UIConfigProvide
     
     override open func setUpAppearance() {
         layer.masksToBounds = true
-        backgroundColor = uiConfig.colorPalette.channelListUnreadCountView
-        unreadCountLabel.textColor = uiConfig.colorPalette.channelListUnreadCountLabel
+        backgroundColor = uiConfig.colorPalette.alert
+        unreadCountLabel.textColor = uiConfig.colorPalette.text2
         unreadCountLabel.font = uiConfig.font.captionBold
         unreadCountLabel.adjustsFontForContentSizeCategory = true
         unreadCountLabel.textAlignment = .center

@@ -56,8 +56,8 @@ open class ChatSwipeableListItemView<ExtraData: ExtraDataTypes>: View, UIConfigP
     override public func defaultAppearance() {
         super.defaultAppearance()
         deleteButton.setImage(UIImage(named: "icn_delete", in: .streamChatUI), for: .normal)
-        deleteButton.backgroundColor = uiConfig.colorPalette.channelListActionsBackgroundColor
-        deleteButton.tintColor = uiConfig.colorPalette.channelListActionDeleteChannel
+        deleteButton.backgroundColor = uiConfig.colorPalette.background
+        deleteButton.tintColor = uiConfig.colorPalette.alert
     }
 
     // MARK: - Button actions

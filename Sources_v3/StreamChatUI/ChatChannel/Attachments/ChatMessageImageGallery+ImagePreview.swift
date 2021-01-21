@@ -44,7 +44,7 @@ extension ChatMessageImageGallery {
         // MARK: - Overrides
 
         override public func defaultAppearance() {
-            imageView.backgroundColor = uiConfig.colorPalette.galleryImageBackground
+            imageView.backgroundColor = uiConfig.colorPalette.background
         }
 
         override open func setUp() {

@@ -31,7 +31,7 @@ open class ChatMessageMetadataView<ExtraData: ExtraDataTypes>: View, UIConfigPro
     // MARK: - Overrides
 
     override public func defaultAppearance() {
-        let color = uiConfig.colorPalette.messageTimestampText
+        let color = uiConfig.colorPalette.subtitleText
         currentUserVisabilityIndicator.textLabel.textColor = color
         currentUserVisabilityIndicator.imageView.tintColor = color
         

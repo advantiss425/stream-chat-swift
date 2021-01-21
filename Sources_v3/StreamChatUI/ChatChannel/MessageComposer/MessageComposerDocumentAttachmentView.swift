@@ -32,7 +32,7 @@ open class MessageComposerDocumentAttachmentView<ExtraData: ExtraDataTypes>: Cha
         layer.cornerRadius = 15
         layer.masksToBounds = true
         layer.borderWidth = 1
-        layer.borderColor = uiConfig.colorPalette.incomingMessageBubbleBorder.cgColor
+        layer.borderColor = uiConfig.colorPalette.border.cgColor
         
         fileSizeLabel.textColor = uiConfig.colorPalette.subtitleText
         fileNameLabel.textColor = uiConfig.colorPalette.text

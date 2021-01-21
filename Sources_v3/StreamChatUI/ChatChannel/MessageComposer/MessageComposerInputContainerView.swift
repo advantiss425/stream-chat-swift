@@ -34,7 +34,7 @@ open class MessageComposerInputContainerView<ExtraData: ExtraDataTypes>: View, U
     
     override public func defaultAppearance() {
         let rightAccessoryImage = UIImage(named: "dismissInCircle", in: .streamChatUI)?
-            .tinted(with: uiConfig.colorPalette.messageComposerButton)
+            .tinted(with: uiConfig.colorPalette.inactiveTint)
         rightAccessoryButton.setImage(rightAccessoryImage, for: .normal)
     }
     
