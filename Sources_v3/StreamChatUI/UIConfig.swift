@@ -49,18 +49,7 @@ public extension UIConfig {
 
         public var subtitleText: UIColor = .streamGray
         public var text: UIColor = .streamBlack
-        public var generalBackground: UIColor = .streamWhiteSnow
-        public var popupBackground: UIColor = .streamWhite
-        public var shadow: UIColor = .streamModalShadow
-
-        // MARK: - Channel List
-
-        public var channelListActionsBackgroundColor: UIColor = .streamWhiteSmoke
-        public var channelListIndicatorBorderColor: UIColor = .streamWhiteSnow
-        public var channelListActionDeleteChannel: UIColor = .streamAccentRed
-        public var channelListAvatarOnlineIndicator: UIColor = .streamAccentGreen
-        public var channelListUnreadCountView: UIColor = .streamAccentRed
-        public var channelListUnreadCountLabel: UIColor = .streamWhite
+        public var text2: UIColor = .streamWhite
 
         // MARK: - Text interactions
 
@@ -68,44 +57,70 @@ public extension UIConfig {
         public var disabledColorForColor: (UIColor) -> UIColor = { _ in .lightGray }
         public var unselectedColorForColor: (UIColor) -> UIColor = { _ in .lightGray }
 
+        public var generalBackground: UIColor = .streamWhiteSnow
+        /// Color under the generalBackground, for example if you swipe to delete on cell, this color should be below the cell.
+        public var background: UIColor = .streamWhiteSmoke
+        public var background1: UIColor = .streamGrayGainsboro
+        public var background2: UIColor = .streamBlueAlice
+        public var background3: UIColor = .streamOverlay
+        public var background4: UIColor = .streamOverlayDark
+        public var popoverBackground: UIColor = .streamWhite
+        public var highlightedBackground: UIColor = .streamAccentBlue
+
+        public var shadow: UIColor = .streamModalShadow
+        public var lightBorder: UIColor = .streamWhiteSnow
+        public var border: UIColor = .streamGrayGainsboro
+
+        public var alertColor: UIColor = .streamAccentRed
+        public var onlineIndicatorColor: UIColor = .streamAccentGreen // This feels strange, however no other component uses green.
+        public var inactiveTint: UIColor = .streamGray
+
+        // MARK: - Channel List
+
+//        public var channelListActionsBackgroundColor: UIColor = .streamWhiteSmoke // background
+//        public var channelListIndicatorBorderColor: UIColor = .streamWhiteSnow // lightBorder
+//        public var channelListActionDeleteChannel: UIColor = .streamAccentRed //
+//        public var channelListAvatarOnlineIndicator: UIColor = .streamAccentGreen
+//        public var channelListUnreadCountView: UIColor = .streamAccentRed
+//        public var channelListUnreadCountLabel: UIColor = .streamWhite
+
         // MARK: - Message Bubbles
 
-        public var outgoingMessageBubbleBackground: UIColor = .streamGrayGainsboro
-        public var outgoingMessageBubbleBorder: UIColor = .streamGrayGainsboro
-        public var incomingMessageBubbleBackground: UIColor = .streamWhite
-        public var incomingMessageBubbleBorder: UIColor = .streamGrayGainsboro
-        public var inactiveReactionTint: UIColor = .streamGray
-        public var outgoingMessageErrorIndicatorTint: UIColor = .streamAccentRed
-        public var linkMessageBubbleBackground: UIColor = .streamBlueAlice
-        public var ephemeralMessageBubbleBackground: UIColor = .streamWhite
-        public var giphyBadgeText: UIColor = .streamWhite
+//        public var outgoingMessageBubbleBackground: UIColor = .streamGrayGainsboro
+//        public var outgoingMessageBubbleBorder: UIColor = .streamGrayGainsboro
+//        public var incomingMessageBubbleBackground: UIColor = .streamWhite
+//        public var incomingMessageBubbleBorder: UIColor = .streamGrayGainsboro
+//        public var inactiveReactionTint: UIColor = .streamGray
+//        public var outgoingMessageErrorIndicatorTint: UIColor = .streamAccentRed
+//        public var linkMessageBubbleBackground: UIColor = .streamBlueAlice
+//        public var ephemeralMessageBubbleBackground: UIColor = .streamWhite
+//        public var giphyBadgeText: UIColor = .streamWhite
 
         // MARK: - Message Composer
 
-        public var messageComposerBorder: UIColor = .streamGrayGainsboro
-        public var messageComposerBackground: UIColor = .streamWhite
-        public var messageComposerButton: UIColor = .streamGray
-        public var messageComposerStateIcon: UIColor = .streamGrayGainsboro
-        public var messageComposerPlaceholder: UIColor = .streamGray
-        public var messageComposerCheckmarkBorder: UIColor = .streamGray
-        public var messageComposerCheckmarkLabel: UIColor = .streamGray
-        public var messageComposerCheckmark: UIColor = .streamWhite
-        public var slashCommandViewBackground: UIColor = .streamAccentBlue
-        public var slashCommandViewText: UIColor = .streamWhite
+//        public var messageComposerBorder: UIColor = .streamGrayGainsboro // border
+//        public var messageComposerBackground: UIColor = .streamWhite // popoverBackground
+//        public var messageComposerButton: UIColor = .streamGray // inactiveTint
+//        public var messageComposerStateIcon: UIColor = .streamGrayGainsboro // inactiveTint
+//        public var messageComposerPlaceholder: UIColor = .streamGray // inactiveTint/subtitleText
+//        public var messageComposerCheckmarkBorder: UIColor = .streamGray // inactiveTint/subtitleText
+//        public var messageComposerCheckmarkLabel: UIColor = .streamGray // inactivetint/subtitleText
+//        public var messageComposerCheckmark: UIColor = .streamWhite // probably popoverBackground, unless defined otherwise
+//        public var slashCommandViewBackground: UIColor = .streamAccentBlue // highlightedBackground
+//        public var slashCommandViewText: UIColor = .streamWhite // text2
 
         // MARK: - Message interaction
 
-        public var popupDimmedBackground: UIColor = .streamOverlay
-        public var galleryMoreImagesOverlayBackground: UIColor = .streamOverlay
-        public var messageTimestampText: UIColor = .streamGray
-        public var unreadChatTint: UIColor = .streamGray
-        public var galleryImageBackground: UIColor = .streamWhiteSmoke
-        public var galleryUploadingOverlayBackground: UIColor = .streamOverlay
-        public var galleryUploadingProgressBackground: UIColor = .streamOverlayDark
-        public var messageActionDefaultIconTint: UIColor = .streamGray
-        public var messageActionDefaultText: UIColor = .streamBlack
-        public var messageActionErrorTint: UIColor = .streamAccentRed
-        public var messageInteractiveAttachmentActionsBorder: UIColor = .streamGrayGainsboro
+//        public var galleryMoreImagesOverlayBackground: UIColor = .streamOverlay // background3
+//        public var messageTimestampText: UIColor = .streamGray // subtitleText
+//        public var unreadChatTint: UIColor = .streamGray // subtitleText
+//        public var galleryImageBackground: UIColor = .streamWhiteSmoke
+//        public var galleryUploadingOverlayBackground: UIColor = .streamOverlay // background 3
+//        public var galleryUploadingProgressBackground: UIColor = .streamOverlayDark // background 4
+//        public var messageActionDefaultIconTint: UIColor = .streamGray // inactiveTint
+//        public var messageActionDefaultText: UIColor = .streamBlack // text
+//        public var messageActionErrorTint: UIColor = .streamAccentRed // alertTint
+//        public var messageInteractiveAttachmentActionsBorder: UIColor = .streamGrayGainsboro // border
     }
 }
 

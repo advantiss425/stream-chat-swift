@@ -20,7 +20,7 @@ open class MessageComposerSuggestionsCommandsHeaderView<ExtraData: ExtraDataType
     lazy var headerLabel: UILabel = UILabel().withoutAutoresizingMaskConstraints
 
     override public func defaultAppearance() {
-        backgroundColor = uiConfig.colorPalette.popupBackground
+        backgroundColor = uiConfig.colorPalette.popoverBackground
 
         headerLabel.font = uiConfig.font.body
         headerLabel.textColor = uiConfig.colorPalette.subtitleText
