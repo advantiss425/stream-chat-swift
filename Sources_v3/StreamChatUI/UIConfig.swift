@@ -11,7 +11,7 @@ public struct UIConfig<ExtraData: ExtraDataTypes> {
     public var messageComposer = MessageComposer()
     public var currentUser = CurrentUserUI()
     public var navigation = Navigation()
-    public var colorPalette = ColorPalette()
+    public var colorPalette: ColorTheme = ColorPalette()
     public var font = Font()
     public var loadingIndicator = LoadingIndicatorUI()
 
@@ -44,7 +44,7 @@ public extension UIConfig {
 // MARK: - Color Palette
 
 public extension UIConfig {
-    struct ColorPalette {
+    struct ColorPalette: ColorTheme {
         // MARK: - Text
 
         /// General textColor, should be something that contrasts great with your
@@ -344,7 +344,9 @@ public extension UIConfig {
 
 // MARK: - Steam constants
 
-// Those colors are default defined stream constants, which
+// Those colors are default defined stream constants, which are fallback values if you don't implement your color theme.
+// There is this static method `mode(_ light:, lightAlpha:, _ dark:, darkAlpha:)` which can help you in a great way with
+// implementing dark mode support.
 private extension UIColor {
     /// This is color palette used by design team.
     /// If you see any color not from this list in figma, point it out to anyone in design team.
