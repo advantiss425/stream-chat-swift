@@ -11,7 +11,7 @@ public struct UIConfig<ExtraData: ExtraDataTypes> {
     public var messageComposer = MessageComposer()
     public var currentUser = CurrentUserUI()
     public var navigation = Navigation()
-    public var colorPalette: ColorTheme = ColorPalette()
+    public var colorPalette: ColorTheme = StreamColorTheme()
     public var font = Font()
     public var loadingIndicator = LoadingIndicatorUI()
 
@@ -44,7 +44,7 @@ public extension UIConfig {
 // MARK: - Color Palette
 
 public extension UIConfig {
-    struct ColorPalette: ColorTheme {
+    struct StreamColorTheme: ColorTheme {
         // MARK: - Text
 
         /// General textColor, should be something that contrasts great with your
@@ -81,7 +81,7 @@ public extension UIConfig {
         // MARK: - Tint and alert
 
         public var alert: UIColor = .streamAccentRed
-        public var alternativeActiveTint: UIColor = .streamAccentGreen // This feels strange, however no other component uses green.
+        public var alternativeActiveTint: UIColor = .streamAccentGreen
         public var inactiveTint: UIColor = .streamGray
     }
 }
